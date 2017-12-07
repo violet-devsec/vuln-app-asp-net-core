@@ -20,6 +20,7 @@ namespace PicShopper.Web.Controllers
             ViewData["Message"] = "Your application description page.";
 
             return View();
+
         }
 
         public IActionResult Contact()
