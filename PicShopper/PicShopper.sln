@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{80FE3237-DF57-42EA-A902-45C5C451D055}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{E76AE5FC-6DC2-4297-A991-40535C8D5B9B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PicShopper.Database", "data\PicShopper.Database\PicShopper.Database.sqlproj", "{C917D114-A483-49EA-A73B-D38D36EF9649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicShopper.Web", "src\PicShopper.Web\PicShopper.Web.csproj", "{6C5162A6-8A89-4BA6-B4C3-9981EFE66B57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C917D114-A483-49EA-A73B-D38D36EF9649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C917D114-A483-49EA-A73B-D38D36EF9649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C917D114-A483-49EA-A73B-D38D36EF9649}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C917D114-A483-49EA-A73B-D38D36EF9649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C917D114-A483-49EA-A73B-D38D36EF9649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C917D114-A483-49EA-A73B-D38D36EF9649}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6C5162A6-8A89-4BA6-B4C3-9981EFE66B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5162A6-8A89-4BA6-B4C3-9981EFE66B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5162A6-8A89-4BA6-B4C3-9981EFE66B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5162A6-8A89-4BA6-B4C3-9981EFE66B57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C917D114-A483-49EA-A73B-D38D36EF9649} = {E76AE5FC-6DC2-4297-A991-40535C8D5B9B}
+		{6C5162A6-8A89-4BA6-B4C3-9981EFE66B57} = {80FE3237-DF57-42EA-A902-45C5C451D055}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2E510BE-4B24-41B8-A99B-3ABEC01339D0}
+	EndGlobalSection
+EndGlobal
