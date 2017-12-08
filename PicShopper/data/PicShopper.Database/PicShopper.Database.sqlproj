@@ -57,14 +57,11 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="StoredProcedures" />
     <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\tbl_guestBook.sql" />
     <Build Include="Tables\tbl_users.sql" />
-    <Build Include="StoredProcedures\sp_getComments.sql" />
-    <Build Include="StoredProcedures\sp_insertComments.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PicShopper.Database.refactorlog" />
