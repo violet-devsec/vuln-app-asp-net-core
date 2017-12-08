@@ -3,6 +3,6 @@
 	@comment VARCHAR(250)
 AS
 BEGIN
-	INSERT INTO [GBComments] (usr_name, comment)
+	INSERT INTO [tbl_guestBook] (name, comment)
 	VALUES(@name, @comment)
 END

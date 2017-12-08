@@ -63,8 +63,8 @@
   <ItemGroup>
     <Build Include="Tables\tbl_guestBook.sql" />
     <Build Include="Tables\tbl_users.sql" />
-    <Build Include="StoredProcedures\sp_getComments_1.sql" />
-    <Build Include="StoredProcedures\sp_insertComments_1.sql" />
+    <Build Include="StoredProcedures\sp_getComments.sql" />
+    <Build Include="StoredProcedures\sp_insertComments.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PicShopper.Database.refactorlog" />
