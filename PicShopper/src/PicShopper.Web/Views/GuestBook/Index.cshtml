@@ -10,8 +10,8 @@
         @foreach (var comment in Model.Comments)
         {
             <tr>
-                <td><div class="alert-warning">@comment.Comment</div></td>
-                <td><div class="alert-success"> - @Html.Raw(comment.Name) </div></td>
+                <td><div class="alert-success"><strong>@comment.Comment</strong></div></td>
+                <td><div class="alert-info"> - @Html.Raw(comment.Name) </div></td>
             </tr>
         }
     </table>

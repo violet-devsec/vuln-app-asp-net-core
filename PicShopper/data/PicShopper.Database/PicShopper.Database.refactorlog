@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="bb2124bc-2ca6-44c2-b95b-eb591b148861" ChangeDateTime="12/08/2017 13:19:30">
+    <Property Name="ElementName" Value="[dbo].[tbl_guestBook].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbl_guestBook]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="c_id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="86c88bdd-60b8-42ed-a20b-60eb85be3768" ChangeDateTime="12/08/2017 13:21:14">
+    <Property Name="ElementName" Value="[dbo].[tbl_users].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbl_users]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="u_id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ffa6e75e-7297-49fd-a121-cc76c18a5d82" ChangeDateTime="12/08/2017 13:23:57">
+    <Property Name="ElementName" Value="[dbo].[tbl_guestBook].[user_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbl_guestBook]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="name" />
+  </Operation>
+</Operations>
