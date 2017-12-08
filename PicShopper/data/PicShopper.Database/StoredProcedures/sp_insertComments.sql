@@ -5,4 +5,4 @@ AS
 BEGIN
 	INSERT INTO [tbl_guestBook] (name, comment)
 	VALUES(@name, @comment)
-END 
+END
