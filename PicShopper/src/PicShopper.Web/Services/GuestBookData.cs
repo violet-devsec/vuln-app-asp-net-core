@@ -12,7 +12,7 @@ namespace PicShopper.Web.Services
     }
     public class GuestBookData : IGuestBookData
     {
-        private SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=WackoPickoDB;" +
+        private SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=PicShopperDB;" +
                                                       "Integrated Security=True;Persist Security Info=False;" +
                                                       "Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;" +
                                                       "Encrypt=False;TrustServerCertificate=True");
@@ -37,7 +37,7 @@ namespace PicShopper.Web.Services
                 foreach (DataRow row in table.Rows)
                 {
                     GuestBook com = new GuestBook();
-                    com.Name = row["usr_name"].ToString();
+                    com.Name = row["uname"].ToString();
                     com.Comment = row["comment"].ToString();
                     coms.Add(com);
                 }

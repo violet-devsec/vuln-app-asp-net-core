@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,7 +8,7 @@ namespace PicShopper.Web.Services
 {
     public interface IUserData
     {
-        bool DoLogin(string uname, string pass);
+        int DoLogin(string uname, string pass);
     }
     public class UsersData : IUserData
     {
@@ -23,15 +24,15 @@ namespace PicShopper.Web.Services
 
         private IConfiguration _configuration;
 
-        private SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=WackoPickoDB;" +
+        private SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=PicShopperDB;" +
                                                       "Integrated Security=True;Persist Security Info=False;" +
                                                       "Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;" +
                                                       "Encrypt=False;TrustServerCertificate=True");
-        public bool DoLogin(string uname, string pass)
+        public int DoLogin(string uname, string pass)
         {
-            SqlCommand cmd = con.CreateCommand();
-            DataTable table = new DataTable();
-            string qrString = "SELECT * FROM Users WHERE name='" + uname + "' AND password='" + pass + "';";
+            SqlCommand cmd      = con.CreateCommand();
+            DataTable  table    = new DataTable();
+            string     qrString = "SELECT * FROM tbl_users WHERE uname='" + uname + "' AND password='" + pass + "';";
 
             using (con)
             {
@@ -42,11 +43,12 @@ namespace PicShopper.Web.Services
 
                     if (reader.Read())
                     {
-                        return true;
+                        int userid = (int)reader["u_id"];
+                        return userid;
                     }
                     else
                     {
-                        return false;
+                        return 0;
                     }
                 }
             }

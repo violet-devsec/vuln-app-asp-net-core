@@ -25,11 +25,15 @@ namespace PicShopper.Web
             services.AddMvc();
             services.AddScoped<IUserData, UsersData>();
             services.AddScoped<IGuestBookData, GuestBookData>();
+            services.AddScoped<IUploads, Uploads>();
+            services.AddScoped<IRecent, Recent>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                                     .AddCookie(options =>
                                     {
                                         options.LoginPath = "/Login";
                                     });
+            //services.AddDistributedMemoryCache();
+            //services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +51,7 @@ namespace PicShopper.Web
 
             app.UseFileServer();
             app.UseAuthentication();
+            //app.UseSession();
             app.UseMvc(ConfigureRoutes);
             app.Run(ctx => ctx.Response.WriteAsync("Not Found!"));
         }

@@ -8,15 +8,16 @@
     <form asp-controller="Login" asp-action="Index" method="post">
         <div>
             <label asp-for="UserName">Username :</label>
-            <input asp-for="UserName" />
+            <input asp-for="UserName" class="form-control" />
         </div>
         <div>
             <label asp-for="Password">Password : </label>
-            <input asp-for="Password" type="password" />
+            <input asp-for="Password" type="password" class="form-control" />
         </div>
         <input asp-for="RetUrl" value="@Model.RetUrl" type="hidden" />
+        <br />
         <div>
-            <input type="submit" value="Login" />
+            <input type="submit" value="Login" class="btn" />
         </div>
     </form>
 </div>

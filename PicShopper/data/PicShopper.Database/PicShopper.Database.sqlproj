@@ -65,6 +65,9 @@
     <Build Include="Tables\tbl_users.sql" />
     <Build Include="StoredProcedures\sp_getComments.sql" />
     <Build Include="StoredProcedures\sp_insertComments.sql" />
+    <Build Include="Tables\tbl_pictures.sql" />
+    <Build Include="StoredProcedures\sp_insertPictureDetails.sql" />
+    <Build Include="StoredProcedures\sp_getRecentPictures.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PicShopper.Database.refactorlog" />

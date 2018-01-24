@@ -1,4 +1,18 @@
-﻿@{
+﻿@model RecentViewModel
+
+@{
     ViewBag.Title = "Recent";
 }
-<h1>"Recent" coming soon...</h1>
+<h1>"Recent Uploaded Pics"</h1>
+    @foreach (var pic in Model.RecentFiles)
+    {
+        <div class="column prepend-1 span-21 first last" style="margin-bottom: 2em;">
+            <ul class="thumbnail-pic-list">
+                <li>
+                    <a href=""><img src="~/images/uploads/@pic.Name" height="128" width="128" /></a>
+                </li>
+            </ul>
+        </div>
+
+     }
+

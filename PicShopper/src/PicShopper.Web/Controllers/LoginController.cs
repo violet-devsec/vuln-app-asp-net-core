@@ -6,6 +6,7 @@ using System.Web;
 using PicShopper.Web.Models;
 using PicShopper.Web.Services;
 using Microsoft.AspNetCore.Authentication;
+using System.Threading;
 
 namespace PicShopper.Web.Controllers
 {
@@ -56,25 +57,26 @@ namespace PicShopper.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(Login model)
         {
-            bool success = _userData.DoLogin(model.UserName, model.Password);
+            int success = _userData.DoLogin(model.UserName, model.Password);
             string rUrl = HttpContext.Request.Path;
 
             rUrl = Url.ToString();
 
-            if (success)
+            if (success != 0)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, model.UserName)
+                    new Claim(ClaimTypes.Name, model.UserName),
+                    new Claim(ClaimTypes.Sid, success.ToString())
                 };
 
                 var userIdentity = new ClaimsIdentity(claims, "login");
 
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                
                 //await HttpContext.Authentication.SignInAsync("CookieAuthentication", principal);
                 await HttpContext.SignInAsync(principal);
-
-
+                
                 return RedirectToAction("Index", model.RetUrl);
             }
 

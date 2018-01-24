@@ -1,4 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[sp_getComments]
 AS
-	SELECT [name], [comment] FROM [tbl_guestBook]
+	SELECT [uname], [comment] FROM [tbl_guestBook]
 RETURN 0
