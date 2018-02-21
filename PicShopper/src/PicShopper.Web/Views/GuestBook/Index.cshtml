@@ -1,0 +1,32 @@
+﻿@model GuestBookViewModel
+
+@{
+    ViewBag.Title = "GuestBook";
+}
+<div class="column prepend-1 span-24 first last">
+    <h2>Guestbook</h2>
+    <h4>See what people are saying about us!</h4>
+    <table align="center">
+        @foreach (var comment in Model.Comments)
+        {
+            <tr>
+                <td><div class="alert-success"><strong>@comment.Comment</strong></div></td>
+                <td><div class="alert-info"> - @Html.Raw(comment.Name) </div></td>
+            </tr>
+        }
+    </table>
+    <div>
+        <form asp-controller="GuestBook" asp-action="Create" method="POST">
+            <label for="Name">Name:</label>
+            <br />
+            <input class="form-control" name="Name" id="Name" type="text"/>
+            <br />
+            <label for="Comment">Comment:</label>
+            <br />
+            <textarea class="form-control" name="Comment" id="Comment"></textarea>
+            <br />
+            <input value="Submit" type="submit">
+        </form>
+    </div>
+</div>
+

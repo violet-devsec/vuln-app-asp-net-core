@@ -1,0 +1,27 @@
+﻿@model PicView
+@{
+    ViewBag.Title = "PicView";
+}
+
+<div class="row">
+    <div class="col-md-8" style="background:#ff6a00">
+        <div class="row" style="background:#808080">
+            <img style="height:300px; width:350px;" src="~/images/uploads/@Model.Name" />
+        </div>
+        <div class="row" style="background:#808080">
+            Name : <b>@Model.Title </b> Price : <b> @Model.Price </b>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="background:#808080">
+            <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                <input type="submit" value="Add to Cart" />
+            </form>
+        </div>
+        <div class="row" style="background:#b6ff00">
+            <form asp-controller="" asp-action="" method="get">
+                <input type="submit" value="Buy Now" />
+            </form>
+        </div>
+    </div>
+</div>

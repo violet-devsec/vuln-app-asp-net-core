@@ -1,0 +1,28 @@
+﻿.customBody {
+    text-align: center;
+}
+#footer {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#footer ul {
+    list-style-type: none;
+    display: inline;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer ul li {
+    list-style-type: none;
+    display: inline;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer ul a {
+    overflow: visible;
+}

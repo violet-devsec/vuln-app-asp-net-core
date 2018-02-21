@@ -1,0 +1,23 @@
+﻿@model Login
+
+@{
+    ViewBag.Title = "Login";
+}
+<div class="column prepend-1 span-23 first last">
+    <h2>Login</h2>
+    <form asp-controller="Login" asp-action="Index" method="post">
+        <div>
+            <label asp-for="UserName">Username :</label>
+            <input asp-for="UserName" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="Password">Password : </label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+        <input asp-for="RetUrl" value="@Model.RetUrl" type="hidden" />
+        <br />
+        <div>
+            <input type="submit" value="Login" class="btn" />
+        </div>
+    </form>
+</div>
