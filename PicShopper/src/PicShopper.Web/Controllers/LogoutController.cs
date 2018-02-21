@@ -9,7 +9,7 @@ namespace PicShopper.Web.Controllers
         public async Task<IActionResult> Index()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Login", "User");
         }
     }
 }

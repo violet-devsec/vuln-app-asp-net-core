@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace PicShopper.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class UploadController : Controller
     {
         private IUploads _uploads { get; set; }

@@ -1,0 +1,30 @@
+﻿@model CartViewModel
+@{
+    ViewBag.Title = "Cart";
+}
+
+<div class="column prepend-1 span-24 first last">
+    <h2>Yor Cart</h2>
+    <table align="center">
+        <tr>
+            <td><div class="alert-success"><strong>Name</strong></div></td>
+            <td><div class="alert-success"><strong>Count</strong></div></td>
+            <td><div class="alert-success"><strong>Price</strong><div></div></td>
+        </tr>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td><div class="alert-info">@Html.Raw(item.ItemName)</div></td>
+                <td><div class="alert-info"> @item.Count </div></td>
+                <td><div class="alert-info">@item.Price</div></td>
+            </tr>
+        }
+    </table>
+    <br/>
+    <br/>
+    <div>
+        <form asp-controller="User" asp-action="CheckOut" method="POST">
+           <input value="Check Out" type="submit">
+        </form>
+    </div>
+</div>

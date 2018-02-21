@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using PicShopper.Web.Models;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,7 +9,8 @@ namespace PicShopper.Web.Services
 {
     public interface IUserData
     {
-        int DoLogin(string uname, string pass);
+        Login DoLogin(string uname, string pass);
+        bool ChangePassword(string uid, string newpassword);
     }
     public class UsersData : IUserData
     {
@@ -28,10 +30,11 @@ namespace PicShopper.Web.Services
                                                       "Integrated Security=True;Persist Security Info=False;" +
                                                       "Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;" +
                                                       "Encrypt=False;TrustServerCertificate=True");
-        public int DoLogin(string uname, string pass)
+        public Login DoLogin(string uname, string pass)
         {
             SqlCommand cmd      = con.CreateCommand();
             DataTable  table    = new DataTable();
+            Login      user     = new Login();
             string     qrString = "SELECT * FROM tbl_users WHERE uname='" + uname + "' AND password='" + pass + "';";
 
             using (con)
@@ -43,14 +46,43 @@ namespace PicShopper.Web.Services
 
                     if (reader.Read())
                     {
-                        int userid = (int)reader["u_id"];
-                        return userid;
+                        user.UserId   = (int)reader["u_id"];
+                        user.UserName = (string)reader["lastname"];
+                        user.UType    = (UserType)reader["group"];
                     }
-                    else
-                    {
-                        return 0;
-                    }
+
+                    return user;
                 }
+            }
+        }
+
+        public bool ChangePassword(string uid, string newpassword)
+        {
+            SqlCommand cmd   = con.CreateCommand();
+            cmd.CommandType  = CommandType.StoredProcedure;
+            cmd.CommandText  = "sp_changeUserPassword";
+            cmd.Parameters.Add("@uId", SqlDbType.VarChar).Value = uid;
+            cmd.Parameters.Add("@newPassword", SqlDbType.VarChar).Value = newpassword;
+            try
+            {
+                con.Open();
+                int success = cmd.ExecuteNonQuery();
+
+                if(success == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Dispose();
+                cmd = null;
+                con.Close();
             }
         }
     }

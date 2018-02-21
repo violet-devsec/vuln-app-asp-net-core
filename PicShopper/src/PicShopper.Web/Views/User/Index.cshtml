@@ -1,3 +1,26 @@
-﻿<div>
-    <h2>Welcome User</h2>
+﻿@model UserViewModel
+@{
+    ViewBag.Title = "User";
+}
+<h2>Hi @User.Identity.Name</h2>
+<div class="row">
+    <div class="col-md-8" style="background:#becece">
+        Test
+        </br>
+        Test
+        </br>
+        Test
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="background:#becece">
+            <form asp-controller="Cart" asp-action="Index" asp-route-id="@Model.Id" method="get">
+                <input type="submit" value="Cart" />
+            </form>
+        </div>
+        <div class="row" style="background:#becece">
+            <form asp-controller="User" asp-action="ChangePassword" method="get">
+                <input type="submit" value="Change Password" />
+            </form>
+        </div>
+    </div>
 </div>

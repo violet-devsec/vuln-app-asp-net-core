@@ -20,10 +20,10 @@ namespace PicShopper.Web.Services
         public IEnumerable<GuestBook> GetComments()
         {
             List<GuestBook> coms = new List<GuestBook>();
-            SqlCommand cmd = con.CreateCommand();
-            DataTable table = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "sp_getComments";
+            SqlCommand cmd       = con.CreateCommand();
+            DataTable table      = new DataTable();
+            cmd.CommandType      = CommandType.StoredProcedure;
+            cmd.CommandText      = "sp_getComments";
 
             try
             {

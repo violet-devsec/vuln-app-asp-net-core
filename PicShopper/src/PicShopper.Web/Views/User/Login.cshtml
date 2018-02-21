@@ -1,0 +1,21 @@
+﻿@model Login
+@{
+    ViewBag.Title = "UserLogin";
+}
+<h1>User Login</h1>
+<div class="column prepend-1 span-23 first last">
+    <form asp-controller="User" asp-action="Login" method="post">
+        <div>
+            <label asp-for="UserName">Username :</label>
+            <input asp-for="UserName" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="Password">Password : </label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Login" class="btn" />
+        </div>
+    </form>
+</div>

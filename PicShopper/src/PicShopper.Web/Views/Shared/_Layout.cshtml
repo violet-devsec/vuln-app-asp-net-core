@@ -31,11 +31,20 @@
                         @{
                             if (User.Identity.IsAuthenticated)
                             {
+                                if (User.IsInRole("Admin"))
+                                {
+                                    <a class=@(@ViewBag.Title == "User" ? "btn btn-info" : "btn btn-primary") asp-controller="Admin" asp-action="Index">Admin</a>
+                                }
+                                else
+                                {
+                                    <a class=@(@ViewBag.Title == "User" ? "btn btn-info" : "btn btn-primary") asp-controller="User" asp-action="Index">More</a>
+                                }
+
                                 <a class=@(@ViewBag.Title == "Logout" ? "btn btn-info" : "btn btn-primary") asp-controller="Logout" asp-action="Index">Logout</a>
                             }
                             else
                             {
-                                <a class=@(@ViewBag.Title == "Login" ? "btn btn-info" : "btn btn-primary") asp-controller="Login" asp-action="Index">Login</a>
+                                <a class=@(@ViewBag.Title == "Login" ? "btn btn-info" : "btn btn-primary") asp-controller="User" asp-action="Login">Login</a>
                             }
                         }
                     </div>
@@ -43,7 +52,7 @@
                 <div class="col-md-3" style="padding-top:5px;">
 
                     <div id="search_box">
-                        <form action="/pictures/search.php" method="get" style="display:inline;">
+                        <form action="/Recent/Search" method="GET" style="display:inline;">
                             <input id="query2" name="query" size="15" style="padding: 2px; font-size: 16px; text-decoration:none;border:none;vertical-align:middle;" value="" type="text">
                             <input src="/images/search_button_white.gif" style="border: 0pt none ; position: relative; top: 0px;vertical-align:middle;margin-left: 1em;" type="image">
                         </form>
@@ -63,9 +72,9 @@
             <div class="" id="footer">
                 <ul>
                     <li><a href="/">Home</a> |</li>
-                    <li><a href="/admin/index.php?page=login">Admin</a> |</li>
+                    <li><a href="/Admin">Admin</a> |</li>
                     <li><a href="mailto:contact@wackopicko.com">Contact</a> |</li>
-                    <li><a href="/tos.php">Terms of Service</a></li>
+                    <li><a href="/Tos">Terms of Service</a></li>
                 </ul>
             </div>
         </div>

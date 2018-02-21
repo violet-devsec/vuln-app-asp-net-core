@@ -5,7 +5,6 @@ using PicShopper.Web.ViewModels;
 
 namespace PicShopper.Web.Controllers
 {
-    [Authorize]
     public class RecentController : Controller
     {
         private IRecent _recent { get; set; }

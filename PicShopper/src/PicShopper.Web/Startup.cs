@@ -27,6 +27,8 @@ namespace PicShopper.Web
             services.AddScoped<IGuestBookData, GuestBookData>();
             services.AddScoped<IUploads, Uploads>();
             services.AddScoped<IRecent, Recent>();
+            services.AddScoped<IPicViewData, PicViewData>();
+            services.AddScoped<ICartData, CartData>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                                     .AddCookie(options =>
                                     {

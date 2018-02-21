@@ -43,6 +43,15 @@ namespace PicShopper.Web.Controllers
             if (HttpContext.Request.QueryString.Value != "")
             {
                 _retUrl = ParseQueryStr(HttpUtility.UrlDecode(HttpContext.Request.QueryString.ToString()));
+                
+                if(_retUrl == "Admin")
+                {
+                    return RedirectToAction("Login", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("Login", "User");
+                }
             }
             else
             {
@@ -53,34 +62,6 @@ namespace PicShopper.Web.Controllers
 
             return View(model);
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Index(Login model)
-        {
-            int success = _userData.DoLogin(model.UserName, model.Password);
-            string rUrl = HttpContext.Request.Path;
-
-            rUrl = Url.ToString();
-
-            if (success != 0)
-            {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, model.UserName),
-                    new Claim(ClaimTypes.Sid, success.ToString())
-                };
-
-                var userIdentity = new ClaimsIdentity(claims, "login");
-
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-                
-                //await HttpContext.Authentication.SignInAsync("CookieAuthentication", principal);
-                await HttpContext.SignInAsync(principal);
-                
-                return RedirectToAction("Index", model.RetUrl);
-            }
-
-            return View();
-        }
+        
     }
 }

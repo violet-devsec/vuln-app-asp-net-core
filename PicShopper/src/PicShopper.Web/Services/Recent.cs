@@ -39,9 +39,9 @@ namespace PicShopper.Web.Services
                 foreach (DataRow row in table.Rows)
                 {
                     RecentFile rec = new RecentFile();
+                    rec.PicId      = Convert.ToInt32(row["p_id"]);
                     rec.Title      = row["title"].ToString();
                     rec.Name       = row["file_name"].ToString();
-                    rec.Price      = (int)row["price"];
                     recs.Add(rec);
                 }
             }
