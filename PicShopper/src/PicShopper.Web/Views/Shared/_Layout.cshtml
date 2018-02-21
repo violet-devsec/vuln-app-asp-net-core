@@ -72,7 +72,10 @@
             <div class="" id="footer">
                 <ul>
                     <li><a href="/">Home</a> |</li>
-                    <li><a href="/Admin">Admin</a> |</li>
+                    @if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                    {
+                        <li><a href="/Admin">Admin</a> |</li>
+                    }
                     <li><a href="mailto:contact@wackopicko.com">Contact</a> |</li>
                     <li><a href="/Tos">Terms of Service</a></li>
                 </ul>

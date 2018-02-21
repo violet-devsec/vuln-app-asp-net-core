@@ -1,0 +1,29 @@
+﻿@model BuyItemViewModel
+@{
+    ViewBag.Title = "Buy";
+}
+
+<div class="row">
+    <div class="col-md-8" style="background:#ff6a00">
+        <script>var total = 0;</script>
+        @foreach (var item in Model.BuyItems)
+        {
+            <div class="row" style="background:#808080">
+                <label>@item.Name</label>
+            </div>
+            <div class="row" style="background:#808080">
+               <label>@item.Price</label>
+            </div>
+            <script>total = total + (@item.Price * @item.Count);</script>
+        }
+        <script>alert(total);</script>
+    </div>
+    <div class="col-md-4">
+        <div class="row" style="background:#808080">
+            Test
+        </div>
+        <div class="row" style="background:#b6ff00">                
+            <input type="submit" value="Pay" />
+        </div>
+    </div>
+</div>

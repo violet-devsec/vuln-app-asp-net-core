@@ -22,7 +22,8 @@ namespace PicShopper.Web.Controllers
         {
             PicView model = new PicView();
 
-            model = _picData.GetPic(picId);
+            model    = _picData.GetPic(picId);
+            model.Id = picId;
 
             return View(model);
         }

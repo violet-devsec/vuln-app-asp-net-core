@@ -73,6 +73,7 @@
     <Build Include="Tables\tbl_userCart.sql" />
     <Build Include="StoredProcedures\sp_getUserCart.sql" />
     <Build Include="StoredProcedures\sp_addItemToCart.sql" />
+    <Build Include="StoredProcedures\sp_removeUserItemsFromCart.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PicShopper.Database.refactorlog" />

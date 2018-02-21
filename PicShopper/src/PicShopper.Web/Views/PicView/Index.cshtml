@@ -14,12 +14,17 @@
     </div>
     <div class="col-md-4">
         <div class="row" style="background:#808080">
-            <form asp-controller="Cart" asp-action="AddToCart" method="post">
+            <form asp-controller="Cart" asp-action="AddToCart" method="post">                
+                <input type="hidden" value="@Model.Title" name="title"/>
+                <input type="hidden" value="@Model.Price" name="price" />
+                <label>No of copies:</label><input type="text" name="count" />
                 <input type="submit" value="Add to Cart" />
             </form>
         </div>
         <div class="row" style="background:#b6ff00">
-            <form asp-controller="" asp-action="" method="get">
+            <form asp-controller="Buy" asp-action="Index" method="post">
+                <input type="hidden" value="@Model.Title" name="title" />
+                <input type="hidden" value="@Model.Price" name="price" />
                 <input type="submit" value="Buy Now" />
             </form>
         </div>

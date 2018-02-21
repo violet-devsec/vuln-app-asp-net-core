@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace PicShopper.Web.Models
 {
-    public class PicView
+    public class BuyItem
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-        public string Title { get; set; }
+        public int Count { get; set; }
     }
 }
