@@ -24,8 +24,8 @@ namespace PicShopper.Web.Controllers
         [HttpPost]
         public IActionResult Create(GuestBook model)
         {
-            var guestBook = new GuestBook();
-            guestBook.Name = model.Name;
+            var guestBook     = new GuestBook();
+            guestBook.Name    = model.Name;
             guestBook.Comment = model.Comment;
 
             bool success = _guestBook.AddComment(guestBook);

@@ -17,6 +17,7 @@ namespace PicShopper.Web.Controllers
         {
             _cartData = cartData;
         }
+
         public IActionResult Index(int id)
         {
             var model       = new CartViewModel();
@@ -39,7 +40,7 @@ namespace PicShopper.Web.Controllers
 
             if(success)
             {
-                return RedirectToAction("Index", "Cart", userId);
+                return RedirectToAction("Index", new { id = userId });
             }
             else
             {

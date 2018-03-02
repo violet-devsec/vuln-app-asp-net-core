@@ -85,7 +85,17 @@ namespace PicShopper.Web.Controllers
 
             bool passChanged = _userData.ChangePassword(data.UserId, data.NewPassword);
 
-            return View(model);
+            if (passChanged)
+            {
+                ViewBag.Message = "Password changed successfully!";
+                return View(model);
+            }
+
+            else
+            {
+                ViewBag.Message = "Error in changing password!";
+                return View(model);
+            }
         }
 
     }

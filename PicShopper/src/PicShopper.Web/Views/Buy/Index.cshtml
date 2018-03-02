@@ -1,29 +1,50 @@
 ﻿@model BuyItemViewModel
 @{
-    ViewBag.Title = "Buy";
+    ViewBag.Title = "CheckOut";
 }
 
-<div class="row">
-    <div class="col-md-8" style="background:#ff6a00">
-        <script>var total = 0;</script>
-        @foreach (var item in Model.BuyItems)
-        {
-            <div class="row" style="background:#808080">
-                <label>@item.Name</label>
-            </div>
-            <div class="row" style="background:#808080">
-               <label>@item.Price</label>
-            </div>
-            <script>total = total + (@item.Price * @item.Count);</script>
-        }
-        <script>alert(total);</script>
-    </div>
-    <div class="col-md-4">
-        <div class="row" style="background:#808080">
-            Test
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:650px;">
         </div>
-        <div class="row" style="background:#b6ff00">                
-            <input type="submit" value="Pay" />
+        <div class="col-sm-8">
+            <div class="row">
+                <br />
+                <script>
+                    var total = 0;
+                    function displayTotal() {
+                        document.getElementById("amount").innerText = total.toString();
+                    }
+                </script>
+                @foreach (var item in Model.BuyItems)
+                {
+                    <div style="background:#808080">
+                        <label>Item Name: </label>
+                        <label>@item.Name</label>
+
+                    </div>
+                    <div style="background:#808080">
+                        <label>@item.Count X @item.Price</label>
+                    </div>
+                    <script>total = total + (@item.Price * @item.Count);</script>
+                }
+            </div>
+            <div class="row" style="background:#b6ff00">
+                <div><label>Total Rs: </label><span id="amount"></span></div>
+                <form asp-controller="Pay" asp-action="Index" method="post">
+                    <input id="payBtn" type="submit" value="Pay" class="btn" />
+                </form>
+                <span id="amount"></span>
+                <script>
+                    displayTotal();
+                    if (total == 0) {
+                        document.getElementById("payBtn").disabled = true;
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav" style="height:650px;">
+
         </div>
     </div>
 </div>

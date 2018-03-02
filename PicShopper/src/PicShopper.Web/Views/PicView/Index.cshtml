@@ -3,30 +3,36 @@
     ViewBag.Title = "PicView";
 }
 
-<div class="row">
-    <div class="col-md-8" style="background:#ff6a00">
-        <div class="row" style="background:#808080">
-            <img style="height:300px; width:350px;" src="~/images/uploads/@Model.Name" />
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:650px;">
         </div>
-        <div class="row" style="background:#808080">
-            Name : <b>@Model.Title </b> Price : <b> @Model.Price </b>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="row" style="background:#808080">
-            <form asp-controller="Cart" asp-action="AddToCart" method="post">                
-                <input type="hidden" value="@Model.Title" name="title"/>
-                <input type="hidden" value="@Model.Price" name="price" />
-                <label>No of copies:</label><input type="text" name="count" />
-                <input type="submit" value="Add to Cart" />
-            </form>
-        </div>
-        <div class="row" style="background:#b6ff00">
-            <form asp-controller="Buy" asp-action="Index" method="post">
-                <input type="hidden" value="@Model.Title" name="title" />
-                <input type="hidden" value="@Model.Price" name="price" />
-                <input type="submit" value="Buy Now" />
-            </form>
+        <div class="col-sm-8">
+            <div class="row">
+                <img style="height:400px; width:450px;" src="~/images/uploads/@Model.Name" />
+            </div>
+            <div class="row">
+                Name : <b>@Model.Title </b> Price : <b> @Model.Price </b>
+            </div>
+            </div>
+        <div class="col-sm-2 sidenav" style="height:650px;">
+            <div class="well">
+                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                    <input type="hidden" value="@Model.Title" name="title" />
+                    <input type="hidden" value="@Model.Price" name="price" />
+                    <label>No of copies:</label><input type="text" name="count" />
+                    <input type="submit" value="Add to Cart" />
+                </form>
+            </div>
+            <div class="well">
+                <form asp-controller="Buy" asp-action="Index" method="post">
+                    <input type="hidden" value="@Model.Title" name="title" />
+                    <input type="hidden" value="@Model.Price" name="price" />
+                    <input type="submit" value="Buy Now" />
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
+
