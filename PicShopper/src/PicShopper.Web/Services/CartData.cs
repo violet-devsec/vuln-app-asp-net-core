@@ -62,7 +62,8 @@ namespace PicShopper.Web.Services
             
             return carts;
         }
-
+        
+        // Adds data yo cart
         public bool AddToCart(Cart cart, string id)
         {
             int userId       = Convert.ToInt32(id);
