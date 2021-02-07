@@ -60,7 +60,8 @@ namespace PicShopper.Web.Services
             
             return carts;
         }
-
+        
+        // Adds items to cart
         public bool AddToCart()
         {
             return true;
