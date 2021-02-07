@@ -31,7 +31,7 @@ namespace PicShopper.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login model)
         {
-            Login user = _userData.DoLogin(model.UserName, model.Password);
+            Login user  = _userData.DoAdminLogin(model.UserName, model.Password);
             string rUrl = HttpContext.Request.Path;
             string Role = "Admin";
 
@@ -57,6 +57,35 @@ namespace PicShopper.Web.Controllers
             }
 
             return View();
+        }
+
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddUser(AddUser model)
+        {
+            var newUser       = new AddUser();
+            newUser.FirstName = model.FirstName;
+            newUser.LastName  = model.LastName;
+            newUser.LoginName = model.LoginName;
+            newUser.Dollors   = model.Dollors;
+
+            bool success = _userData.AddUser(newUser);
+
+            if (success)
+            {
+                ViewBag.Message = "User Added!";
+                return View();
+            }
+
+            else
+            {
+                ViewBag.Message = "Error in adding user";
+                return View();
+            }
         }
     }
 }
