@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:650px;">
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <h1>Welcome Admin!</h1>
+            </div>
+
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav" style="height:650px;">
+            <div class="well">
+                <form asp-controller="Admin" asp-action="AddUser" method="get">
+                    <input type="submit" value="Add User" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

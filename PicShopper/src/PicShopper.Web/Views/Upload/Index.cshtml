@@ -1,0 +1,43 @@
+﻿@model UploadFile
+
+@{
+    ViewBag.Title = "Upload";
+}
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:650px;">
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <h3>"Upload Your Pics"</h3>
+                <br />
+            </div>
+
+            <div class="row">
+                <form method="post" enctype="multipart/form-data" asp-controller="Upload" asp-action="Index">
+                    <div>
+                        <label asp-for="Title">Title :</label>
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+                    <div>
+                        <label asp-for="Price">Price : </label>
+                        <input asp-for="Price" class="form-control" type="text" />
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="Content">File : </label>
+                        <input asp-for="Content" class="form-control" type="file" />
+                    </div>
+                    <br />
+                    <div>
+                        <input type="submit" value="Upload" class="btn" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav" style="height:650px;">
+
+        </div>
+    </div>
+</div>

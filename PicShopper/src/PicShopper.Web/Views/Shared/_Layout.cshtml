@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PicShopper</title>
+    <!--<link href="~/css/blueprint/screen.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/blueprint/print.css" rel="stylesheet" type="text/css" />-->
+    @*<link href="~/css/stylings.css" rel="stylesheet" type="text/css" />*@
+    <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script>
+        var Popper = null;
+    </script>
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    @RenderSection("Styles", false)
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .form-control {
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+            color: #555;
+            display: block;
+            font-size: 14px;
+            height: 34px;
+            line-height: 1.42857;
+            padding: 6px 12px;
+            transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+            width: 20%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @@media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">PicShopper</a>
+            </div>
+            <div class="navbar-collapse" id="navbar-main">
+                <ul class="nav navbar-nav"></ul> 
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("User"))
+                        {
+                            <li><a asp-controller="Upload" asp-action="Index">Upload</a></li>
+                        }
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Upload" asp-action="Index">Upload</a></li>
+                    }
+                    <li><a asp-controller="Recent" asp-action="Index">Recent</a></li>
+                    <li><a asp-controller="GuestBook" asp-action="Index">GuestBook</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li><a asp-controller="Admin" asp-action="Index">Admin</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-controller="User" asp-action="Index">More</a></li>
+                        }
+                        <li><a asp-controller="Logout" asp-action="Index">Logout</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="User" asp-action="Login">Login</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid body-content">
+        <div class="row" id="menu"><br /><br /><br /></div>
+        <div class="customBody"  style="text-align:center;">
+            @RenderBody()
+        </div>
+        <div class="" id="footer" style="text-align:center;">
+            <ul style="list-style: none" class="list-inline">
+                <li class="left"><a href="/">Home</a> |</li>
+                @if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                {
+                    <li><a href="/Admin">Admin</a> |</li>
+                }
+                <li><a href="mailto:contact@picshopper.com">Contact</a> |</li>
+                <li><a href="/Home/About">About</a></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

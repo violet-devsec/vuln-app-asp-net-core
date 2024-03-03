@@ -1,0 +1,30 @@
+﻿@model RecentViewModel
+
+@{
+    ViewBag.Title = "Recent";
+}
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:650px;">
+        </div>
+        <div class="col-sm-8">
+            <h1>"Recent Uploaded Pics"</h1>
+            <div class="row">
+                @foreach (var pic in Model.RecentFiles)
+                {
+                    <div class="column prepend-1 span-21 first last" style="margin-bottom: 2em;">
+                        <ul class="thumbnail-pic-list">
+                            <li>
+                                <a href="/PicView?picId=@pic.PicId"><img src="~/images/uploads/@pic.Name" height="128" width="128" /></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                }
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav" style="height:650px;">
+        </div>
+    </div>
+</div>

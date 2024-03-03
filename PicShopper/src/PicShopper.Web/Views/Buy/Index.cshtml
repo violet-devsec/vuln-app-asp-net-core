@@ -1,0 +1,50 @@
+﻿@model BuyItemViewModel
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:650px;">
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <br />
+                <script>
+                    var total = 0;
+                    function displayTotal() {
+                        document.getElementById("amount").innerText = total.toString();
+                    }
+                </script>
+                @foreach (var item in Model.BuyItems)
+                {
+                    <div style="background:#808080">
+                        <label>Item Name: </label>
+                        <label>@item.Name</label>
+
+                    </div>
+                    <div style="background:#808080">
+                        <label>@item.Count X @item.Price</label>
+                    </div>
+                    <script>total = total + (@item.Price * @item.Count);</script>
+                }
+            </div>
+            <div class="row" style="background:#b6ff00">
+                <div><label>Total Rs: </label><span id="amount"></span></div>
+                <form asp-controller="Pay" asp-action="Index" method="post">
+                    <input id="payBtn" type="submit" value="Pay" class="btn" />
+                </form>
+                <span id="amount"></span>
+                <script>
+                    displayTotal();
+                    if (total == 0) {
+                        document.getElementById("payBtn").disabled = true;
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav" style="height:650px;">
+
+        </div>
+    </div>
+</div>
